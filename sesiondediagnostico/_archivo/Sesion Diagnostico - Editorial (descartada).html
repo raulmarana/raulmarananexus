@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 1:1 con Raúl Maraña — 47€ · Nexus Plan</title>
+<meta name="description" content="Una hora 1:1 con Raúl Maraña. Sales con un análisis 360° de tu negocio digital y un plan claro de qué palanca activar primero.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* PAPER PALETTE — default */
+    --paper: #efe8d8;
+    --paper-deep: #e6dec9;
+    --paper-soft: #f5efe2;
+    --ink: #1a1611;
+    --ink-soft: #4a4338;
+    --ink-dim: #8a8170;
+    --rule: rgba(26,22,17,0.14);
+    --rule-strong: rgba(26,22,17,0.32);
+    --accent: #7a1f2b;
+    --accent-soft: #a13340;
+    --accent-tint: rgba(122,31,43,0.08);
+
+    --max-w: 1200px;
+    --max-w-narrow: 880px;
+    --max-w-text: 640px;
+
+    --serif: 'Newsreader', 'Times New Roman', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  }
+
+  /* ───── alt palettes (via Tweaks) ───── */
+  [data-palette="forest"] {
+    --paper: #ecebe2; --paper-deep: #ddddd0; --paper-soft: #f3f2ea;
+    --ink: #14180f; --ink-soft: #3d4234; --ink-dim: #7d8073;
+    --accent: #1e3a2a; --accent-soft: #305a42; --accent-tint: rgba(30,58,42,0.08);
+  }
+  [data-palette="ink"] {
+    --paper: #f1ede5; --paper-deep: #e6e1d4; --paper-soft: #f6f2eb;
+    --ink: #11100e; --ink-soft: #3a3833; --ink-dim: #807a6e;
+    --accent: #11100e; --accent-soft: #3a3833; --accent-tint: rgba(17,16,14,0.07);
+  }
+  [data-palette="oxblood"] {
+    /* default — declared again for explicitness */
+    --paper: #efe8d8; --paper-deep: #e6dec9; --paper-soft: #f5efe2;
+    --ink: #1a1611; --ink-soft: #4a4338; --ink-dim: #8a8170;
+    --accent: #7a1f2b; --accent-soft: #a13340; --accent-tint: rgba(122,31,43,0.08);
+  }
+
+  /* ───── display font swap ───── */
+  [data-display="newsreader"] { --serif: 'Newsreader', Georgia, serif; }
+  [data-display="instrument"] { --serif: 'Instrument Serif', Georgia, serif; }
+  [data-display="ptserif"]    { --serif: 'PT Serif', Georgia, serif; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 19px;
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  /* subtle paper grain */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.1, 0 0 0 0 0.09, 0 0 0 0 0.07, 0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+  main, header, footer { position: relative; z-index: 2; }
+
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+  .narrow { max-width: var(--max-w-narrow); margin: 0 auto; }
+
+  /* ─────────────── TYPE SYSTEM ─────────────── */
+  .serif { font-family: var(--serif); }
+  .it { font-style: italic; }
+  .mono {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-dim);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    line-height: 1.04;
+    color: var(--ink);
+  }
+  h1 { font-size: clamp(3.4rem, 8vw, 7.2rem); font-weight: 400; letter-spacing: -0.025em; }
+  h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 400; letter-spacing: -0.018em; line-height: 1.05; }
+  h3 { font-size: clamp(1.6rem, 2.4vw, 2rem); font-weight: 400; line-height: 1.15; }
+  p { color: var(--ink-soft); }
+  em, .em { font-style: italic; color: var(--ink); }
+  strong { font-weight: 500; color: var(--ink); }
+
+  /* hand-style underline accent for key words */
+  .ink-mark {
+    background-image: linear-gradient(transparent 62%, var(--accent-tint) 62%, var(--accent-tint) 92%, transparent 92%);
+    padding: 0 0.04em;
+  }
+  .ink-rule {
+    color: var(--accent);
+  }
+
+  /* ───────── TOP STRIP — magazine masthead ───────── */
+  .masthead-strip {
+    border-bottom: 1px solid var(--rule-strong);
+    background: var(--paper-deep);
+  }
+  .masthead-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    max-width: var(--max-w);
+    margin: 0 auto;
+    gap: 24px;
+  }
+  .masthead-inner span { display: inline-flex; align-items: center; gap: 8px; }
+  .masthead-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @media (max-width: 720px) {
+    .masthead-inner > :nth-child(2) { display: none; }
+  }
+
+  /* ───────── HEADER ───────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(239,232,216,0.92);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    border-bottom: 1px solid var(--rule);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    padding: 14px 0;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+    min-width: 0;
+  }
+  .brand-mark {
+    width: 40px; height: 40px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    flex-shrink: 0;
+    background: var(--paper-soft);
+  }
+  .brand-text { line-height: 1.1; }
+  .brand-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .brand-name em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .brand-tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 2px;
+  }
+  .header-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 11px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--sans);
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+  .header-cta:hover { background: var(--accent); transform: translateY(-1px); }
+  .header-cta .arrow { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1; }
+  @media (max-width: 560px) {
+    .brand-tag { display: none; }
+    .header-cta { padding: 9px 14px; font-size: 13px; }
+  }
+
+  /* ───────── HERO ───────── */
+  .hero { padding: 80px 0 64px; position: relative; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 56px 0 40px; }
+  }
+
+  .issue-line {
+    display: flex; align-items: center; gap: 18px;
+    margin-bottom: 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .issue-line::before, .issue-line::after {
+    content: '';
+    flex: 0 0 36px;
+    height: 1px;
+    background: var(--rule-strong);
+  }
+  .issue-line::after { flex: 1; }
+
+  .hero h1 {
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+  .hero h1 .accent-it {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .hero-side {
+    padding-bottom: 8px;
+  }
+  .hero-lead {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 1.7vw, 1.55rem);
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 300;
+    margin-bottom: 28px;
+    max-width: 36ch;
+  }
+  .hero-lead em { color: var(--accent); }
+
+  .hero-meta {
+    display: flex; gap: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule-strong);
+    margin-bottom: 28px;
+  }
+  .hero-meta-item { line-height: 1.3; }
+  .hero-meta-key {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 6px;
+  }
+  .hero-meta-val {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+  .hero-meta-val em { color: var(--accent); font-style: italic; }
+
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 18px 28px;
+    background: var(--accent);
+    color: var(--paper-soft);
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 0 var(--ink) inset, 0 4px 0 -2px var(--ink);
+  }
+  .btn:hover { background: var(--ink); transform: translateY(-2px); }
+  .btn .price {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    margin-left: 4px;
+    opacity: 0.95;
+  }
+  .btn .arrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--ink);
+    padding: 16px 24px;
+  }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper-soft); }
+
+  .micro {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .hero-photo-strip {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+    align-items: end;
+  }
+  @media (max-width: 880px) { .hero-photo-strip { grid-template-columns: 1fr; } }
+
+  .hero-photo {
+    aspect-ratio: 16/7;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 12px 12px 0 var(--accent);
+  }
+  .hero-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    filter: grayscale(35%) contrast(1.05);
+    mix-blend-mode: normal;
+  }
+  .hero-photo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(26,22,17,0.45));
+  }
+  .hero-photo-caption {
+    position: absolute;
+    left: 16px; bottom: 14px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--paper);
+    z-index: 1;
+  }
+  .hero-photo-caption span { color: rgba(255,255,255,0.55); margin-right: 8px; }
+
+  .hero-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    line-height: 1.3;
+    color: var(--ink);
+    padding-left: 22px;
+    border-left: 2px solid var(--accent);
+  }
+  .hero-quote-attr {
+    margin-top: 14px;
+    padding-left: 22px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  /* ───────── SECTION CHROME ───────── */
+  section { padding: 96px 0; position: relative; }
+  @media (max-width: 720px) { section { padding: 64px 0; } }
+
+  .section-eyebrow {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 28px;
+  }
+  .section-eyebrow .roman {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .section-eyebrow .label { color: var(--ink); }
+
+  .rule { height: 1px; background: var(--rule-strong); width: 100%; }
+  .double-rule {
+    height: 6px;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    margin: 0 0;
+  }
+
+  /* ───────── AUTHORITY / EL CURRICULUM ───────── */
+  .authority { background: var(--paper-soft); border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); }
+  .authority-head { text-align: left; margin-bottom: 56px; }
+  .authority-head h2 {
+    font-style: italic;
+    font-weight: 300;
+    max-width: 18ch;
+  }
+  .authority-head h2 .ink-mark { font-style: normal; }
+
+  .authority-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 880px) { .authority-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .figure {
+    position: relative;
+  }
+  .figure-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--ink);
+    object-fit: cover;
+    object-position: center 20%;
+    border: 1px solid var(--ink);
+    filter: grayscale(40%) contrast(1.05);
+    display: block;
+  }
+  .figure-caption {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    line-height: 1.55;
+  }
+  .figure-caption .figno { color: var(--accent); flex-shrink: 0; }
+
+  .authority-body {
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+  .authority-body p + p { margin-top: 18px; }
+  .authority-body strong { color: var(--ink); font-weight: 500; }
+  .authority-body em { color: var(--accent); }
+
+  /* drop cap */
+  .dropcap::first-letter {
+    font-family: var(--serif);
+    font-style: italic;
+    float: left;
+    font-size: 5.4em;
+    line-height: 0.86;
+    padding: 0.08em 0.1em 0 0;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .pullquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height: 1.2;
+    color: var(--ink);
+    padding: 28px 0 24px;
+    margin: 32px 0;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    text-align: left;
+  }
+  .pullquote::before {
+    content: '“';
+    font-size: 2.4em;
+    line-height: 0;
+    color: var(--accent);
+    vertical-align: -0.32em;
+    margin-right: 4px;
+  }
+
+  .stats-row {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule-strong);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr; gap: 18px; } }
+  .stat {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(2.6rem, 4vw, 3.6rem);
+    line-height: 0.95;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  /* ───────── VISTO EN / LOGOS STRIP ───────── */
+  .visto {
+    background: var(--paper);
+    padding: 56px 0;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .visto-label {
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--ink-dim);
+  }
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 64px;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+    align-items: center;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .logo-mark {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    color: var(--ink);
+    white-space: nowrap;
+    opacity: 0.78;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark em { font-style: italic; color: var(--accent); }
+  .logo-mark .star { color: var(--accent); font-size: 1.1rem; line-height: 1; }
+  .logo-mark .mono-tag { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); }
+
+  /* ───────── SESSIONS / CASOS DEL ARCHIVO ───────── */
+  .sessions {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .sessions-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 32px;
+    margin-bottom: 56px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .sessions-head h2 { max-width: 16ch; }
+  .sessions-head h2 em { color: var(--accent); }
+  .sessions-head p {
+    font-family: var(--serif);
+    font-size: 1.16rem;
+    line-height: 1.5;
+    max-width: 38ch;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 720px) {
+    .sessions-head { grid-template-columns: 1fr; }
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 80px 1fr 1.1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .case:last-of-type { border-bottom: none; }
+  @media (max-width: 880px) {
+    .case { grid-template-columns: 1fr; gap: 28px; padding: 36px 0; }
+  }
+  .case-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .case-num small {
+    display: block;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 10px;
+    color: var(--ink-dim);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+  .case-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 14px;
+  }
+  .case-meta .dot { color: var(--accent); margin: 0 8px; }
+  .case h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .case-body p {
+    font-family: var(--sans);
+    font-size: 1.04rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .case-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.45rem, 2vw, 1.8rem);
+    line-height: 1.25;
+    color: var(--ink);
+    font-weight: 300;
+    padding: 8px 0 0 24px;
+    border-left: 3px solid var(--accent);
+    position: relative;
+  }
+  .case-quote::before {
+    content: '“';
+    position: absolute;
+    left: -2px;
+    top: -28px;
+    font-size: 4em;
+    line-height: 1;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .case-attr {
+    margin-top: 16px;
+    padding-left: 24px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  /* ───────── SHORT TESTIMONIALS STRIP ───────── */
+  .voices {
+    padding: 64px 0;
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .voices-label {
+    text-align: center;
+    margin-bottom: 36px;
+    color: var(--ink-dim);
+  }
+  .voices-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  @media (max-width: 980px) { .voices-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .voices-grid { grid-template-columns: repeat(2, 1fr); } }
+  .voice {
+    grid-column: span 2;
+    padding: 28px 24px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .voice-q {
+    font-family: var(--serif);
+    font-size: 1.16rem;
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .voice-q::before {
+    content: '“';
+    color: var(--accent);
+    font-size: 1.2em;
+    line-height: 0;
+    margin-right: 2px;
+    vertical-align: -0.12em;
+  }
+  .voice-attr {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: auto;
+  }
+  .voice-attr strong { color: var(--ink); font-weight: 500; }
+
+  /* ───────── LO QUE TE LLEVAS ───────── */
+  .delivers { background: var(--paper-soft); border-bottom: 1px solid var(--rule-strong); }
+  .delivers-head { margin-bottom: 56px; }
+  .delivers-head h2 { max-width: 22ch; }
+  .delivers-head h2 em { color: var(--accent); }
+  .delivers-head .lead {
+    margin-top: 18px;
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    font-weight: 300;
+  }
+  .palancas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--rule-strong);
+  }
+  @media (max-width: 720px) { .palancas { grid-template-columns: 1fr; } }
+  .palanca {
+    padding: 40px 32px 40px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .palanca:nth-child(odd) { padding-right: 48px; border-right: 1px solid var(--rule); }
+  .palanca:nth-child(even) { padding-left: 32px; }
+  @media (max-width: 720px) {
+    .palanca:nth-child(odd) { border-right: none; padding-right: 0; }
+    .palanca:nth-child(even) { padding-left: 0; }
+  }
+  .palanca-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .palanca h3 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .palanca p {
+    font-family: var(--sans);
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .palanca--final {
+    grid-column: 1 / -1;
+    background: var(--ink);
+    color: var(--paper);
+    border-right: none;
+    padding: 48px;
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+  }
+  .palanca--final .palanca-num { color: var(--accent-soft); }
+  .palanca--final h3 { color: var(--paper); }
+  .palanca--final p { color: rgba(245,239,226,0.78); font-size: 1.1rem; }
+
+  /* ───────── COMO LO HACES ───────── */
+  .how { background: var(--paper); border-bottom: 1px solid var(--rule-strong); }
+  .how-head { margin-bottom: 56px; max-width: 26ch; }
+  .how-head h2 em { color: var(--accent); }
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    position: relative;
+  }
+  @media (max-width: 720px) { .how-steps { grid-template-columns: 1fr; } }
+  .how-step {
+    padding: 40px 32px 40px 0;
+    border-right: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 14px;
+    position: relative;
+  }
+  .how-step:not(:first-child) { padding-left: 32px; }
+  .how-step:last-child { border-right: none; }
+  @media (max-width: 720px) {
+    .how-step { border-right: none; border-bottom: 1px solid var(--rule); padding: 32px 0; }
+    .how-step:not(:first-child) { padding-left: 0; }
+    .how-step:last-child { border-bottom: none; }
+  }
+  .how-step .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .how-step h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .how-step p {
+    font-family: var(--sans);
+    font-size: 1.04rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .how-cta { text-align: center; margin-top: 56px; }
+
+  /* ───────── PARA QUIEN ───────── */
+  .forwho { background: var(--paper-soft); border-bottom: 1px solid var(--rule-strong); }
+  .forwho-head h2 { max-width: 14ch; margin-bottom: 16px; }
+  .forwho-head h2 em { color: var(--accent); font-style: italic; }
+  .forwho-head p {
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    font-weight: 300;
+  }
+  .forwho-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 56px;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  @media (max-width: 720px) { .forwho-grid { grid-template-columns: 1fr; } }
+  .forwho-col {
+    padding: 40px 32px 40px 0;
+  }
+  .forwho-col:first-child { border-right: 1px solid var(--rule); padding-right: 48px; }
+  .forwho-col:last-child { padding-left: 48px; }
+  @media (max-width: 720px) {
+    .forwho-col { padding: 32px 0; border-right: none; border-bottom: 1px solid var(--rule); }
+    .forwho-col:last-child { border-bottom: none; padding: 32px 0; }
+    .forwho-col:first-child { padding: 32px 0; }
+  }
+  .forwho-col h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  .forwho-col h3.no { color: var(--ink); }
+  .forwho-col h3.yes { color: var(--accent); font-style: italic; font-weight: 400; }
+  .forwho-col ul { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+  .forwho-col li {
+    display: flex; gap: 14px;
+    font-family: var(--sans);
+    font-size: 1.04rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .forwho-col li .mark {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-style: italic;
+    margin-top: -2px;
+  }
+  .forwho-col li .mark.no { color: var(--ink-dim); }
+
+  /* ───────── GARANTIA — SEAL ───────── */
+  .guarantee { background: var(--paper); border-bottom: 1px solid var(--rule-strong); }
+  .guarantee-inner {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    align-items: center;
+    max-width: var(--max-w-narrow);
+    margin: 0 auto;
+  }
+  @media (max-width: 720px) { .guarantee-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; justify-items: center; } }
+  .seal {
+    width: 200px; height: 200px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .seal-text { animation: rotate 30s linear infinite; transform-origin: center; }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .seal-text text {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    fill: var(--ink);
+    text-transform: uppercase;
+  }
+  .seal-center {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+    text-align: center;
+  }
+  .guarantee h2 {
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 16px;
+    max-width: 18ch;
+  }
+  .guarantee h2 em { color: var(--accent); }
+  .guarantee p {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    font-weight: 300;
+  }
+
+  /* ───────── FAQ ───────── */
+  .faq { background: var(--paper-soft); border-bottom: 1px solid var(--rule-strong); }
+  .faq-head { margin-bottom: 40px; }
+  .faq-head h2 em { color: var(--accent); }
+  .faq-list { max-width: 820px; margin: 0 auto; border-top: 1px solid var(--rule-strong); }
+  .faq-item { border-bottom: 1px solid var(--rule); }
+  .faq-q {
+    width: 100%;
+    padding: 26px 4px;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 24px;
+    text-align: left;
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .faq-q-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .faq-q-text { flex: 1; }
+  .faq-toggle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--ink-dim);
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.3s;
+  }
+  .faq-item.open .faq-toggle { color: var(--accent); transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-a-inner {
+    padding: 0 36px 28px 36px;
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 64ch;
+  }
+
+  /* ───────── MANIFESTO / FINAL CTA ───────── */
+  .manifesto {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(ellipse at top right, rgba(122,31,43,0.3), transparent 50%);
+    pointer-events: none;
+  }
+  [data-palette="forest"] .manifesto::before { background-image: radial-gradient(ellipse at top right, rgba(30,58,42,0.4), transparent 50%); }
+  [data-palette="ink"] .manifesto::before { background-image: radial-gradient(ellipse at top right, rgba(122,31,43,0.0), transparent 50%); }
+
+  .manifesto-inner {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 32px;
+  }
+  .manifesto .label { color: rgba(245,239,226,0.5); margin-bottom: 32px; }
+  .manifesto h2 {
+    color: var(--paper);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    line-height: 1.05;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .manifesto h2 em { font-style: italic; color: var(--accent-soft); font-weight: 300; }
+  .manifesto .lead {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+    line-height: 1.45;
+    color: rgba(245,239,226,0.8);
+    max-width: 56ch;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+  .manifesto .btn {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 1px 0 var(--paper) inset, 0 4px 0 -2px var(--accent);
+  }
+  .manifesto .btn:hover { background: var(--accent); color: var(--paper); }
+  .manifesto .micro { color: rgba(245,239,226,0.55); margin-top: 18px; }
+
+  /* ───────── FOOTER ───────── */
+  footer {
+    background: var(--paper-deep);
+    padding: 56px 0 28px;
+    border-top: 1px solid var(--rule-strong);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: end;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 24px;
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+  .footer-brand em { color: var(--accent); }
+  .footer-tag { color: var(--ink-soft); max-width: 36ch; line-height: 1.6; }
+  .footer-bottom { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .footer-bottom a { transition: color 0.2s; }
+  .footer-bottom a:hover { color: var(--accent); }
+
+  /* ───────── TWEAKS PANEL ───────── */
+  .tweaks {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    z-index: 60;
+    background: var(--paper-soft);
+    border: 1px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--accent);
+    padding: 22px 22px 20px;
+    width: 280px;
+    max-width: calc(100vw - 48px);
+    display: none;
+    font-family: var(--sans);
+  }
+  .tweaks.open { display: block; animation: slideUp 0.3s ease; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .tweaks-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .tweaks-head h4 { font-family: var(--serif); font-style: italic; font-size: 1.35rem; color: var(--ink); }
+  .tweaks-close { font-family: var(--serif); font-size: 1.3rem; color: var(--ink-dim); padding: 0 4px; }
+  .tweak-group { margin-bottom: 18px; }
+  .tweak-group:last-child { margin-bottom: 0; }
+  .tweak-label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-dim);
+    margin-bottom: 10px;
+  }
+  .tweak-options { display: flex; gap: 6px; flex-wrap: wrap; }
+  .swatch {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--rule-strong);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .swatch:hover { transform: translateY(-2px); }
+  .swatch.active { border-color: var(--ink); transform: translateY(-2px); }
+  .swatch.active::after {
+    content: '✓';
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-size: 18px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+  .swatch-oxblood { background: linear-gradient(135deg, #efe8d8 0% 50%, #7a1f2b 50% 100%); }
+  .swatch-forest  { background: linear-gradient(135deg, #ecebe2 0% 50%, #1e3a2a 50% 100%); }
+  .swatch-ink     { background: linear-gradient(135deg, #f1ede5 0% 50%, #11100e 50% 100%); }
+
+  .font-btn {
+    padding: 8px 12px;
+    border: 1px solid var(--rule-strong);
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .font-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .tweaks-toggle {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    z-index: 59;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid; place-items: center;
+    cursor: pointer;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.6rem;
+    box-shadow: 4px 4px 0 var(--accent);
+    transition: transform 0.2s;
+    display: none; /* shown only when edit mode active */
+  }
+  .tweaks-toggle:hover { transform: rotate(15deg); }
+  .tweaks-toggle.visible { display: grid; }
+  .tweaks.open + .tweaks-toggle { display: none; }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+
+<body data-palette="oxblood" data-display="newsreader">
+
+<!-- ───── MASTHEAD STRIP ───── -->
+<div class="masthead-strip">
+  <div class="masthead-inner">
+    <span><span class="masthead-dot"></span>Nº 01 · Edición sesión 1:1</span>
+    <span>Quedan <strong style="color:var(--ink);font-weight:600;">5 plazas</strong> esta semana</span>
+    <span>Madrid · 2026</span>
+  </div>
+</div>
+
+<!-- ───── HEADER ───── -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="brand">
+      <div class="brand-mark">N</div>
+      <div class="brand-text">
+        <div class="brand-name">Nexus <em>Plan</em></div>
+        <div class="brand-tag">por Raúl Maraña</div>
+      </div>
+    </a>
+    <a href="#reservar" class="header-cta" data-cta="header">
+      Reserva tu hora <span class="arrow">→</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═════════ HERO ═════════ -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="issue-line">
+        <span>Una hora · Un plan · 47€</span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1>Tu&nbsp;proyecto<br><span class="accent-it">nunca</span> dejará<br>de crecer.</h1>
+        </div>
+        <div class="hero-side">
+          <p class="hero-lead">
+            En 60 minutos identifico qué está fallando en tu negocio y <em>salimos con un plan</em>. No es teoría. No es un curso. Es la sesión donde dejas de tocar la palanca equivocada.
+          </p>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <div class="hero-meta-key">Formato</div>
+              <div class="hero-meta-val">1:1 · vídeo</div>
+            </div>
+            <div class="hero-meta-item">
+              <div class="hero-meta-key">Duración</div>
+              <div class="hero-meta-val"><em>60 min</em></div>
+            </div>
+            <div class="hero-meta-item">
+              <div class="hero-meta-key">Inversión</div>
+              <div class="hero-meta-val"><em>47 €</em></div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#reservar" class="btn" data-cta="hero">
+              Reservar mi hora
+              <span class="price">— 47€</span>
+              <span class="arrow">→</span>
+            </a>
+            <span class="micro">Acceso inmediato al calendario</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-photo-strip">
+        <figure class="hero-photo">
+          <img src="assets/raul-marana.jpg" alt="Raúl Maraña en escena">
+          <figcaption class="hero-photo-caption">
+            <span>Fig. 01</span>Raúl Maraña · Hotmart Fire, Madrid 2024
+          </figcaption>
+        </figure>
+        <div>
+          <p class="hero-quote">No vengo a decirte lo que quieres oír. Vengo a decirte lo que necesitas escuchar.</p>
+          <p class="hero-quote-attr">— R. Maraña, regla nº 1</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═════════ VISTO EN / MARCAS ═════════ -->
+  <section class="visto" style="padding:48px 0;">
+    <div class="container">
+      <div class="visto-label label">Visto desde dentro · 4 continentes · 25 años</div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="logo-mark">Hot<em>mart</em></span>
+          <span class="logo-mark"><span class="star">✦</span>RD <em>Summit</em></span>
+          <span class="logo-mark"><span class="mono-tag">FIRE</span> Madrid</span>
+          <span class="logo-mark">Affiliate <em>World</em></span>
+          <span class="logo-mark">Master<em>mind</em> LATAM</span>
+          <span class="logo-mark"><span class="star">✦</span>Producteca</span>
+          <span class="logo-mark">Universo <em>Conversor</em></span>
+          <span class="logo-mark"><span class="mono-tag">TEDx</span> Barcelona</span>
+          <!-- duplicate for seamless loop -->
+          <span class="logo-mark">Hot<em>mart</em></span>
+          <span class="logo-mark"><span class="star">✦</span>RD <em>Summit</em></span>
+          <span class="logo-mark"><span class="mono-tag">FIRE</span> Madrid</span>
+          <span class="logo-mark">Affiliate <em>World</em></span>
+          <span class="logo-mark">Master<em>mind</em> LATAM</span>
+          <span class="logo-mark"><span class="star">✦</span>Producteca</span>
+          <span class="logo-mark">Universo <em>Conversor</em></span>
+          <span class="logo-mark"><span class="mono-tag">TEDx</span> Barcelona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ AUTORIDAD / EL CURRICULUM ═════════ -->
+  <section class="authority">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="roman">I.</span>
+        <span class="label">El currículum</span>
+      </div>
+
+      <div class="authority-head reveal">
+        <h2>Por qué mi mirada vale <em class="ink-mark">60 minutos</em> de tu tiempo.</h2>
+      </div>
+
+      <div class="authority-grid">
+        <figure class="figure reveal">
+          <img class="figure-img" src="assets/raul-marana.jpg" alt="Retrato de Raúl Maraña">
+          <figcaption class="figure-caption">
+            <span class="figno">Fig. 02 ·</span>
+            <span>Raúl Maraña, fotografiado durante Hotmart Fire. Empleado nº 42 de Hotmart. 25 años en internet. Cuatro continentes.</span>
+          </figcaption>
+        </figure>
+
+        <div class="authority-body reveal">
+          <p class="dropcap">Llevo 25 años en internet. Los últimos 10 los he pasado dentro de Hotmart, donde entré siendo el empleado <strong>número 42</strong>. He visto crecer la compañía desde cero hasta transaccionar más de <strong>10.000 millones de dólares al año</strong> a nivel global.</p>
+
+          <p>He pisado escenarios en cuatro continentes. He visto la industria del producto digital por dentro en España, Brasil, Estados Unidos, Francia, Italia, hasta en Japón.</p>
+
+          <p><strong>Más de 1.000 negocios analizados. Cientos llegando al millón. Más de 50 que pasaron del millón a los cinco.</strong></p>
+
+          <div class="pullquote">
+            Hay solo <em>cuatro palancas</em> que cambian un negocio. Producto, audiencia, estrategia, negocio. Casi siempre estás tocando la equivocada.
+          </div>
+
+          <p>Esa es la conclusión que ya no se me sale de la cabeza. Y es exactamente lo que vamos a desmontar en tu hora.</p>
+
+          <div class="stats-row">
+            <div class="stat">
+              <div class="stat-num">25</div>
+              <div class="stat-label">Años · en internet</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">1.000+</div>
+              <div class="stat-label">Negocios · analizados</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Continentes · recorridos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ SESIONES / CASOS DEL ARCHIVO ═════════ -->
+  <section class="sessions">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="roman">II.</span>
+        <span class="label">Casos del archivo</span>
+      </div>
+
+      <div class="sessions-head reveal">
+        <h2>Lo que ha pasado en <em>otras sesiones</em>.</h2>
+        <p>Tres fragmentos de sesiones reales. No son testimonios pulidos: es lo que se dijo en voz alta cuando la cámara estaba grabando.</p>
+      </div>
+
+      <article class="case reveal">
+        <div class="case-num">01<small>Abr 2026</small></div>
+        <div class="case-body">
+          <div class="case-meta">Ximena<span class="dot">·</span>Formación digital<span class="dot">·</span>4 años de carrera</div>
+          <h3>Vino obsesionada con su producto premium de 3.000€.</h3>
+          <p>Le dije que estaba mirando para el lado equivocado. Su producto barato — el que tenía abandonado — era donde estaba todo el dinero. Salió con un plan para no descuidarlo nunca más.</p>
+        </div>
+        <div>
+          <blockquote class="case-quote">Un producto que has mimado tan poco… y ha facturado tanto. Tira de aquí, porque <em>aquí hay mercado.</em></blockquote>
+          <div class="case-attr">— Sesión transcrita · Madrid</div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-num">02<small>May 2026</small></div>
+        <div class="case-body">
+          <div class="case-meta">Esteban<span class="dot">·</span>Coaching B2B<span class="dot">·</span>6 lanzamientos al año</div>
+          <h3>Quería acortar su programa para meter más lanzamientos al año.</h3>
+          <p>Le paré: la duración no era el problema. El precio sí. Su intuición de mercado le estaba jugando una mala pasada — porque él no era su avatar.</p>
+        </div>
+        <div>
+          <blockquote class="case-quote">Cuestiónate el precio. No me cuestionaría la duración. Porque <em>tú no eres el avatar.</em></blockquote>
+          <div class="case-attr">— Sesión transcrita · Buenos Aires</div>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="case-num">03<small>Abr 2026</small></div>
+        <div class="case-body">
+          <div class="case-meta">Valeria<span class="dot">·</span>E-commerce<span class="dot">·</span>+200k seguidores</div>
+          <h3>Llegó convencida de que su problema era el engagement.</h3>
+          <p>No era. Y cuando vio dónde estaba la fuga real, se quedó muda. Lo de siempre: lo obvio se ve cuando alguien te lo señala desde fuera.</p>
+        </div>
+        <div>
+          <blockquote class="case-quote">Mira, esto es tu problema. <em>Era obvio</em> antes de verlo.</blockquote>
+          <div class="case-attr">— Sesión transcrita · Ciudad de México</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═════════ TESTIMONIOS CORTOS ═════════ -->
+  <section class="voices" style="padding:80px 0;">
+    <div class="container">
+      <div class="voices-label label">Voces · Sesiones anteriores</div>
+      <div class="voices-grid">
+        <div class="voice">
+          <p class="voice-q">Me ahorró un año de tropezar en el mismo sitio. Volví al día siguiente con la cabeza ordenada.</p>
+          <div class="voice-attr"><strong>Ana C.</strong> · Formación online</div>
+        </div>
+        <div class="voice">
+          <p class="voice-q">Pagué 47€ y me llevé claridad por valor de meses. Era exactamente lo que necesitaba escuchar.</p>
+          <div class="voice-attr"><strong>Daniel V.</strong> · E-commerce</div>
+        </div>
+        <div class="voice">
+          <p class="voice-q">Me dijo lo que mi equipo no se atrevía a decirme. Y tenía razón.</p>
+          <div class="voice-attr"><strong>Marta L.</strong> · Agencia digital</div>
+        </div>
+        <div class="voice">
+          <p class="voice-q">Una hora con Raúl vale más que tres masterminds que hice este año.</p>
+          <div class="voice-attr"><strong>Jorge P.</strong> · Coaching</div>
+        </div>
+        <div class="voice">
+          <p class="voice-q">Pensaba que mi problema era el tráfico. Me hizo ver que era el producto. Cambió todo.</p>
+          <div class="voice-attr"><strong>Sofía R.</strong> · SaaS</div>
+        </div>
+        <div class="voice">
+          <p class="voice-q">No es una sesión, es una operación a corazón abierto. Sin anestesia.</p>
+          <div class="voice-attr"><strong>Miguel A.</strong> · Infoproducto</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ LO QUE TE LLEVAS ═════════ -->
+  <section class="delivers" id="que-te-llevas">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="roman">III.</span>
+        <span class="label">Las cuatro palancas</span>
+      </div>
+
+      <div class="delivers-head reveal">
+        <h2>Lo que te vas a llevar de <em>esa hora</em>.</h2>
+        <p class="lead">Una radiografía de tu negocio como nadie te la ha hecho. Y un plan claro para mover al menos una de las cuatro palancas. Vamos al hueso.</p>
+      </div>
+
+      <div class="palancas">
+        <div class="palanca reveal">
+          <div class="palanca-num">01</div>
+          <div>
+            <h3>Producto</h3>
+            <p>Voy a mirar de cerca tus promesas, tu metodología y tus precios. Y te voy a decir dónde están desalineados y qué tienes que tocar para que conviertan más y tus clientes salgan más contentos.</p>
+          </div>
+        </div>
+        <div class="palanca reveal">
+          <div class="palanca-num">02</div>
+          <div>
+            <h3>Audiencia</h3>
+            <p>Vamos a ver si tu audiencia crece como debería, por qué estás pagando un dineral por cada lead, y dónde está la fuga real que te está vaciando los bolsillos sin que te enteres.</p>
+          </div>
+        </div>
+        <div class="palanca reveal">
+          <div class="palanca-num">03</div>
+          <div>
+            <h3>Estrategia</h3>
+            <p>Abrimos tus embudos en canal. Te enseño dónde están convirtiendo por debajo del mercado, qué te están copiando los demás que tú no haces, y qué deberías testar ya para escalar las ventas.</p>
+          </div>
+        </div>
+        <div class="palanca reveal">
+          <div class="palanca-num">04</div>
+          <div>
+            <h3>Negocio</h3>
+            <p>Una radiografía honesta de tus márgenes. De las suscripciones, proveedores y gente del equipo que te sangran sin aportar. Y de dónde tienes que invertir más, aunque te dé pánico hacerlo.</p>
+          </div>
+        </div>
+        <div class="palanca palanca--final reveal">
+          <div class="palanca-num">★</div>
+          <div>
+            <h3 style="font-style:italic;">Y lo más importante.</h3>
+            <p>Sales sabiendo qué palanca tocar primero. Sin dudas. Y si tiene sentido seguir trabajando juntos a otro nivel — solo si tiene sentido — lo hablamos. Pero la sesión vale por sí sola. Esa es la regla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ COMO LO HACES ═════════ -->
+  <section class="how" id="reservar">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="roman">IV.</span>
+        <span class="label">El procedimiento</span>
+      </div>
+
+      <div class="how-head reveal">
+        <h2>Tres pasos. <em>Sin marear.</em></h2>
+      </div>
+
+      <div class="how-steps">
+        <div class="how-step reveal">
+          <span class="step-num">Paso 01</span>
+          <h3>Pagas 47€</h3>
+          <p>De forma segura, con tarjeta. Acceso inmediato al calendario, sin esperar a que te respondan.</p>
+        </div>
+        <div class="how-step reveal">
+          <span class="step-num">Paso 02</span>
+          <h3>Eliges tu hora</h3>
+          <p>Tú decides cuándo. Una hora 1:1 conmigo por videollamada. Cara a cara. Como debe ser.</p>
+        </div>
+        <div class="how-step reveal">
+          <span class="step-num">Paso 03</span>
+          <h3>Sales con un plan</h3>
+          <p>Un análisis 360° y la palanca que mover primero. Si encaja seguir trabajando juntos, lo hablamos al final. Si no, te llevas tu plan y a correr.</p>
+        </div>
+      </div>
+
+      <div class="how-cta reveal">
+        <a href="#cta-final" class="btn" data-cta="how">
+          Asegurar mi hora <span class="price">— 47€</span> <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ PARA QUIEN ═════════ -->
+  <section class="forwho">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="roman">V.</span>
+        <span class="label">La cláusula</span>
+      </div>
+
+      <div class="forwho-head reveal">
+        <h2>Antes de pagar, <em>lee esto</em>.</h2>
+        <p>No quiero a cualquiera en mi calendario. Y tú tampoco quieres descubrir a mitad de sesión que esto no era para ti.</p>
+      </div>
+
+      <div class="forwho-grid">
+        <div class="forwho-col reveal">
+          <h3 class="no">Esto NO es para ti si…</h3>
+          <ul>
+            <li><span class="mark no">✕</span><span>Todavía no facturas con cierta regularidad. Te lo digo en serio: vuelve cuando tengas un negocio que se sostenga.</span></li>
+            <li><span class="mark no">✕</span><span>Buscas a alguien que te diga lo que ya quieres oír. No soy ese. Te voy a contradecir si toca.</span></li>
+            <li><span class="mark no">✕</span><span>Crees que tu problema es de motivación. Mi sesión no es de coaching. Es de criterio.</span></li>
+            <li><span class="mark no">✕</span><span>No estás dispuesto a tocar nada de lo que ya tienes montado, aunque te demuestre que va a fallar.</span></li>
+          </ul>
+        </div>
+        <div class="forwho-col reveal">
+          <h3 class="yes">Esto sí es para ti si…</h3>
+          <ul>
+            <li><span class="mark">✦</span><span>Ya facturas y notas que llevas meses moviendo cosas que no terminan de mover la aguja.</span></li>
+            <li><span class="mark">✦</span><span>Necesitas una mirada externa de alguien que ya ha visto cientos de negocios como el tuyo (y peores).</span></li>
+            <li><span class="mark">✦</span><span>Estás a punto de tomar una decisión grande — escalar, contratar, lanzar, pivotar — y necesitas contrastarla antes.</span></li>
+            <li><span class="mark">✦</span><span>Estás dispuesto a oír cosas que no te van a gustar si eso te ahorra meses tirando del carro hacia el lado equivocado.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ GARANTÍA / SELLO ═════════ -->
+  <section class="guarantee">
+    <div class="container">
+      <div class="guarantee-inner reveal">
+        <div class="seal">
+          <svg class="seal-text" viewBox="0 0 200 200" width="200" height="200">
+            <defs>
+              <path id="circle-path" d="M 100, 100 m -82, 0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0"/>
+            </defs>
+            <text>
+              <textPath href="#circle-path" startOffset="0">SALES CON UN PLAN · O TE DEVUELVO EL DINERO · </textPath>
+            </text>
+            <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+          </svg>
+          <div class="seal-center">Garantía<br>47€</div>
+        </div>
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:18px;">
+            <span class="roman">VI.</span>
+            <span class="label">La garantía</span>
+          </div>
+          <h2>Sales con un plan o te <em>devuelvo el dinero</em>.</h2>
+          <p>Si terminamos la hora y sientes que esto no te ha aportado nada útil, me lo dices. Tienes 24h para pedir el reembolso, sin formularios infinitos ni interrogatorios. Mi tiempo no se lo regalo a nadie. Y el tuyo, tampoco te lo voy a quedar yo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ FAQ ═════════ -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="roman">VII.</span>
+        <span class="label">Preguntas frecuentes</span>
+      </div>
+
+      <div class="faq-head reveal">
+        <h2>Lo que ya me ha preguntado <em>otra gente</em>.</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-num">01</span>
+            <span class="faq-q-text">¿Por qué cobras 47€ por la sesión?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Porque 47€ filtra. A este precio no entra el curioso de turno ni el que viene a "ver qué se cuece". Entra el que tiene un negocio de verdad y quiere usar bien su tiempo y el mío. Para mí, eso es lo que vale el filtro. Para ti, es la señal de que vas en serio.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-num">02</span>
+            <span class="faq-q-text">¿Es una sesión de venta encubierta?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            No. Y voy a ser muy honesto: si encaja seguir trabajando juntos a otro nivel, te lo digo al final. Si no encaja, no te lo digo. Punto. La sesión vale por sí sola, no te la vendo para venderte otra cosa. Si fuera así, no la garantizaría.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-num">03</span>
+            <span class="faq-q-text">¿Cuánto dura la sesión?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Una hora cara a cara, por videollamada. Sin script, sin guion, sin prisa. Tu negocio, mi cabeza, tu plan. Si necesitamos cinco minutos más, los tenemos.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-num">04</span>
+            <span class="faq-q-text">¿Necesito traer algo a la sesión?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Nada preparado. Yo te haré las preguntas correctas. Lo único que necesito de ti es honestidad — la de verdad, no la maquillada. Si me pintas tu negocio mejor de lo que es, perdemos el tiempo los dos.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span class="faq-q-num">05</span>
+            <span class="faq-q-text">¿Y si después de la sesión quiero seguir trabajando contigo?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Solo si encaja por ambas partes. Lo repito porque importa: la mayoría de gente que pasa por una sesión NO termina trabajando conmigo después. Y está bien. Si tiene sentido, lo hablamos. Si no, te llevas tu plan y nos despedimos con un abrazo virtual.
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ MANIFIESTO / FINAL CTA ═════════ -->
+  <section class="manifesto" id="cta-final">
+    <div class="manifesto-inner">
+      <div class="label">Manifiesto · Cierre de edición</div>
+      <h2 class="reveal">
+        Escalar no es <em>crecer más rápido</em>.<br>
+        Es saber qué palanca tocar.
+      </h2>
+      <p class="lead reveal">
+        En qué orden, cómo y con qué intensidad. El resto sigue tocando todo a la vez, esperando que algo funcione. Si te has cansado de jugar a la lotería con tu negocio, esta hora es para ti.
+      </p>
+      <div class="reveal">
+        <a href="#" class="btn" id="final-cta" data-cta="final">
+          Reservo mi hora con Raúl
+          <span class="price">— 47€</span>
+          <span class="arrow">→</span>
+        </a>
+        <div class="micro" style="margin-top:22px;">Sales con un plan o te devuelvo el dinero · Quedan 5 plazas esta semana</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Nexus <em>Plan</em></div>
+        <div style="margin-top:10px;">Por Raúl Maraña</div>
+      </div>
+      <div class="footer-tag">Consultoría estratégica en monetización del conocimiento · Madrid · 2026</div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nexus Plan · Todos los derechos reservados</span>
+      <span><a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Términos</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═════════ TWEAKS PANEL ═════════ -->
+<button class="tweaks-toggle" id="tweaks-toggle" title="Probar variantes" aria-label="Abrir panel de variantes">✦</button>
+
+<div class="tweaks" id="tweaks-panel">
+  <div class="tweaks-head">
+    <h4>Variantes</h4>
+    <button class="tweaks-close" id="tweaks-close" aria-label="Cerrar">×</button>
+  </div>
+
+  <div class="tweak-group">
+    <div class="tweak-label">Paleta</div>
+    <div class="tweak-options">
+      <button class="swatch swatch-oxblood active" data-palette-set="oxblood" title="Papel · Borgoña"></button>
+      <button class="swatch swatch-forest" data-palette-set="forest" title="Hueso · Bosque"></button>
+      <button class="swatch swatch-ink" data-palette-set="ink" title="Lino · Tinta"></button>
+    </div>
+  </div>
+
+  <div class="tweak-group">
+    <div class="tweak-label">Fuente display</div>
+    <div class="tweak-options">
+      <button class="font-btn active" data-display-set="newsreader" style="font-family:'Newsreader',serif;">Newsreader</button>
+      <button class="font-btn" data-display-set="instrument" style="font-family:'Instrument Serif',serif;">Instrument</button>
+      <button class="font-btn" data-display-set="ptserif" style="font-family:'PT Serif',serif;">PT Serif</button>
+    </div>
+  </div>
+</div>
+
+<!-- Lazy-load alt display fonts so they're ready when toggled -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+
+<script>
+  /*EDITMODE-BEGIN*/
+  const TWEAKS = {
+    "palette": "oxblood",
+    "display": "newsreader"
+  }/*EDITMODE-END*/;
+
+  const root = document.body;
+  root.dataset.palette = TWEAKS.palette;
+  root.dataset.display = TWEAKS.display;
+
+  // ───── FAQ ─────
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!open) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ───── Reveal on scroll ─────
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ───── CTAs ─────
+  const CHECKOUT_URL = '#';
+  document.querySelectorAll('[data-cta]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const t = btn.dataset.cta;
+      if (t === 'header' || t === 'hero') {
+        e.preventDefault();
+        document.getElementById('reservar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (t === 'how') {
+        e.preventDefault();
+        document.getElementById('cta-final').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (t === 'final') {
+        e.preventDefault();
+        if (CHECKOUT_URL === '#') {
+          alert('Aquí va el checkout / link de pago real.\n\nReemplaza CHECKOUT_URL en el script.');
+        } else {
+          window.location.href = CHECKOUT_URL;
+        }
+      }
+    });
+  });
+
+  // ───── TWEAKS PROTOCOL ─────
+  const panel = document.getElementById('tweaks-panel');
+  const toggleBtn = document.getElementById('tweaks-toggle');
+  const closeBtn = document.getElementById('tweaks-close');
+
+  function showPanel() { panel.classList.add('open'); toggleBtn.style.display = 'none'; }
+  function hidePanel() {
+    panel.classList.remove('open');
+    if (toggleBtn.classList.contains('visible')) toggleBtn.style.display = 'grid';
+  }
+
+  // Listen for host activation BEFORE announcing availability
+  window.addEventListener('message', (event) => {
+    const data = event.data;
+    if (!data || typeof data !== 'object') return;
+    if (data.type === '__activate_edit_mode') {
+      toggleBtn.classList.add('visible');
+      toggleBtn.style.display = 'grid';
+      showPanel();
+    } else if (data.type === '__deactivate_edit_mode') {
+      toggleBtn.classList.remove('visible');
+      toggleBtn.style.display = 'none';
+      panel.classList.remove('open');
+    }
+  });
+
+  // Announce availability
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
+
+  toggleBtn.addEventListener('click', showPanel);
+  closeBtn.addEventListener('click', () => {
+    hidePanel();
+    try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch (e) {}
+  });
+
+  function setKey(key, value) {
+    TWEAKS[key] = value;
+    try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*'); } catch (e) {}
+  }
+
+  document.querySelectorAll('[data-palette-set]').forEach(b => {
+    b.addEventListener('click', () => {
+      const val = b.dataset.paletteSet;
+      root.dataset.palette = val;
+      document.querySelectorAll('[data-palette-set]').forEach(x => x.classList.toggle('active', x === b));
+      setKey('palette', val);
+    });
+  });
+  document.querySelectorAll('[data-display-set]').forEach(b => {
+    b.addEventListener('click', () => {
+      const val = b.dataset.displaySet;
+      root.dataset.display = val;
+      document.querySelectorAll('[data-display-set]').forEach(x => x.classList.toggle('active', x === b));
+      setKey('display', val);
+    });
+  });
+
+  // Sync swatch active state with current tweaks
+  document.querySelectorAll('[data-palette-set]').forEach(b => b.classList.toggle('active', b.dataset.paletteSet === TWEAKS.palette));
+  document.querySelectorAll('[data-display-set]').forEach(b => b.classList.toggle('active', b.dataset.displaySet === TWEAKS.display));
+</script>
+
+</body>
+</html>
