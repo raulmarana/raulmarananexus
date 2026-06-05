@@ -35,6 +35,13 @@ function pickSides(s, t, bend) {
 }
 function norm(x, y) { const m = Math.hypot(x, y) || 1; return { x: x / m, y: y / m }; }
 
+function normalizeUrl(u) {
+  if (!u) return "#";
+  const t = u.trim();
+  if (/^(https?:|mailto:|tel:)/i.test(t)) return t;
+  return "https://" + t.replace(/^\/+/, "");
+}
+
 function geom(s, t, bend) {
   const [ss, ts] = pickSides(s, t, bend);
   const a = anchor(s, ss), b = anchor(t, ts);
@@ -92,6 +99,7 @@ function App() {
   const [nodes, setNodes] = useState(() => (loaded.nodes && loaded.nodes.length ? loaded.nodes : defaultNodes()));
   const [pos, setPos] = useState(() => ({ ...defaultPositions(), ...(loaded.pos || {}) }));
   const [edges, setEdges] = useState(() => (loaded.edges && loaded.edges.length ? loaded.edges : defaultEdges()));
+  const [notes, setNotes] = useState(() => loaded.notes || []);
   const [scale, setScale] = useState(() => loaded.scale || 1);
   const [showLanes, setShowLanes] = useState(() => loaded.showLanes === undefined ? true : loaded.showLanes);
   const [showLabels, setShowLabels] = useState(() => loaded.showLabels === undefined ? true : loaded.showLabels);
@@ -101,6 +109,8 @@ function App() {
   const [selEdge, setSelEdge] = useState(null);
   const [selNode, setSelNode] = useState(null);
   const [editNode, setEditNode] = useState(null);
+  const [selNote, setSelNote] = useState(null);
+  const [editNote, setEditNote] = useState(null);
   const [iconPop, setIconPop] = useState(false);
   const [cursor, setCursor] = useState(null);
   const [connectFrom, setConnectFrom] = useState(null);
@@ -111,13 +121,14 @@ function App() {
   const eDrag = useRef(null);
   const conn = useRef(null);
   const moved = useRef(false);
+  const nDrag = useRef(null);
 
   useEffect(() => {
     const id = setTimeout(() => {
-      localStorage.setItem(LS_KEY, JSON.stringify({ nodes, pos, edges, scale, showLanes, showLabels }));
+      localStorage.setItem(LS_KEY, JSON.stringify({ nodes, pos, edges, notes, scale, showLanes, showLabels }));
     }, 140);
     return () => clearTimeout(id);
-  }, [nodes, pos, edges, scale, showLanes, showLabels]);
+  }, [nodes, pos, edges, notes, scale, showLanes, showLabels]);
 
   const nodeById = useMemo(() => Object.fromEntries(nodes.map(n => [n.id, n])), [nodes]);
 
@@ -165,6 +176,51 @@ function App() {
     setPos(p => { const c = { ...p }; delete c[id]; return c; });
     setSelNode(null); setEditNode(null); setIconPop(false);
   }, []);
+
+  // ---- notes (free labels) ----
+  const updateNote = useCallback((id, patch) => {
+    setNotes(list => list.map(n => n.id === id ? { ...n, ...patch } : n));
+  }, []);
+
+  const addNote = useCallback(() => {
+    const stage = canvasRef.current.parentElement;
+    const cx = (stage.scrollLeft + stage.clientWidth / 2) / scale - 70;
+    const cy = (stage.scrollTop + stage.clientHeight / 2) / scale - 18;
+    const id = "nt" + Date.now();
+    const x = Math.max(0, Math.min(CANVAS.w - 140, cx));
+    const y = Math.max(0, Math.min(CANVAS.h - 36, cy));
+    setNotes(list => [...list, { id, x, y, text: "Nueva etiqueta", url: "", color: "#1c4f8b" }]);
+    setSelEdge(null); setSelNode(null); setEditNode(null);
+    setSelNote(id); setEditNote(id); setIconPop(false);
+  }, [scale]);
+
+  const deleteNote = useCallback((id) => {
+    setNotes(list => list.filter(n => n.id !== id));
+    setSelNote(null); setEditNote(null);
+  }, []);
+
+  const onNoteDown = useCallback((e, id) => {
+    if (e.button !== 0) return;
+    if (editNote === id) return;
+    e.stopPropagation(); e.preventDefault();
+    setSelNote(id); setSelNode(null); setSelEdge(null); setEditNode(null);
+    e.currentTarget.setPointerCapture(e.pointerId);
+    const note = notes.find(n => n.id === id);
+    nDrag.current = { id, startX: e.clientX, startY: e.clientY, orig: { x: note.x, y: note.y }, moved: false, w: e.currentTarget.offsetWidth, h: e.currentTarget.offsetHeight };
+  }, [editNote, notes]);
+
+  const onNoteMove = useCallback((e) => {
+    if (!nDrag.current) return;
+    const { id, startX, startY, orig, w, h } = nDrag.current;
+    const dx = (e.clientX - startX) / scale, dy = (e.clientY - startY) / scale;
+    if (Math.abs(dx) > 2 || Math.abs(dy) > 2) nDrag.current.moved = true;
+    setNotes(list => list.map(n => n.id === id ? { ...n, ...{
+      x: Math.max(0, Math.min(CANVAS.w - w, orig.x + dx)),
+      y: Math.max(0, Math.min(CANVAS.h - h, orig.y + dy)),
+    }} : n));
+  }, [scale]);
+
+  const onNoteUp = useCallback(() => { if (nDrag.current) nDrag.current = null; }, []);
 
   const onNodeDown = useCallback((e, id) => {
     if (e.button !== 0) return;
@@ -279,22 +335,41 @@ function App() {
       const editing = document.activeElement && document.activeElement.isContentEditable;
       if ((ev.key === "Delete" || ev.key === "Backspace") && !editing) {
         if (selEdge) { ev.preventDefault(); setEdges(l => l.filter(x => x.id !== selEdge)); setSelEdge(null); }
+        else if (selNote && !editNote) { ev.preventDefault(); deleteNote(selNote); }
         else if (selNode && !editNode) { ev.preventDefault(); deleteNode(selNode); }
       }
-      if (ev.key === "Escape") { setSelEdge(null); setSelNode(null); setEditNode(null); setIconPop(false); }
+      if (ev.key === "Escape") { setSelEdge(null); setSelNode(null); setEditNode(null); setSelNote(null); setEditNote(null); setIconPop(false); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [selEdge, selNode, editNode, deleteNode]);
+  }, [selEdge, selNode, editNode, selNote, editNote, deleteNode, deleteNote]);
+
+  // click anywhere outside the element being edited → exit edit mode (commits text)
+  useEffect(() => {
+    if (!editNote && !editNode) return;
+    const onDown = (e) => {
+      const t = e.target;
+      if (editNote) {
+        const el = t.closest && t.closest(".note-chip");
+        if (!el || !el.classList.contains("editing")) setEditNote(null);
+      }
+      if (editNode) {
+        const el = t.closest && t.closest(".node");
+        if (!el || !el.classList.contains("editing")) { setEditNode(null); setIconPop(false); }
+      }
+    };
+    window.addEventListener("pointerdown", onDown, true);
+    return () => window.removeEventListener("pointerdown", onDown, true);
+  }, [editNote, editNode]);
 
   const deleteEdge = (id) => { setEdges(l => l.filter(x => x.id !== id)); setSelEdge(null); };
   const reset = () => {
-    setNodes(defaultNodes()); setPos(defaultPositions()); setEdges(defaultEdges());
-    setSelEdge(null); setSelNode(null); setEditNode(null); setIconPop(false); setScale(1);
+    setNodes(defaultNodes()); setPos(defaultPositions()); setEdges(defaultEdges()); setNotes([]);
+    setSelEdge(null); setSelNode(null); setEditNode(null); setSelNote(null); setEditNote(null); setIconPop(false); setScale(1);
   };
   const zoom = (d) => setScale(s => Math.max(0.5, Math.min(1.25, +(s + d).toFixed(2))));
 
-  const clearAll = () => { setSelEdge(null); setSelNode(null); setEditNode(null); setIconPop(false); };
+  const clearAll = () => { setSelEdge(null); setSelNode(null); setEditNode(null); setSelNote(null); setEditNote(null); setIconPop(false); };
   const dimNode = (id) => hover && !neighbors[hover].has(id);
   const activeEdge = (e) => hover && (e.from === hover || e.to === hover);
   const connecting = !!connectFrom || (eDrag.current && (eDrag.current.kind === "from" || eDrag.current.kind === "to"));
@@ -321,9 +396,11 @@ function App() {
 
         <div className="toolbar">
           <button className="btn primary" onClick={addNode}>
-            <Icon name="brand" style={{ display: "none" }} />
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round"><path d="M12 5v14M5 12h14" /></svg>
             Añadir bloque
+          </button>
+          <button className="btn" onClick={addNote}>
+            <Icon name="tag" /> Añadir etiqueta
           </button>
           <button className={"btn" + (showLanes ? " on" : "")} onClick={() => setShowLanes(v => !v)}>
             <Icon name="lanes" /> Carriles
@@ -463,7 +540,7 @@ function App() {
             return (
               <div key={n.id}
                 className={"node" + (dragId === n.id ? " dragging" : "") + (dimNode(n.id) ? " dim" : "")
-                  + (linked ? " linked" : "") + (isDrop ? " drop-ok" : "") + (isSel && !isEdit ? " sel" : "") + (isEdit ? " editing" : "")}
+                  + (linked ? " linked" : "") + (isDrop ? " drop-ok" : "") + (isSel && !isEdit ? " sel" : "") + (isEdit ? " editing" : "") + (n.url && !isEdit ? " has-link" : "")}
                 style={{ left: p.x, top: p.y, "--c": n.color || o.raw }}
                 onPointerDown={(e) => onNodeDown(e, n.id)}
                 onDoubleClick={(e) => { e.stopPropagation(); setEditNode(n.id); setSelNode(n.id); setSelEdge(null); }}
@@ -472,30 +549,40 @@ function App() {
 
                 {isEdit && (
                   <div className="node-tools" onPointerDown={(e) => e.stopPropagation()} onDoubleClick={(e) => e.stopPropagation()}>
-                    {ORIGIN_KEYS.map(k => (
-                      <div key={k} className={"nt-dot" + (n.origin === k ? " on" : "")}
-                        style={{ background: ORIGINS[k].raw }} title={ORIGINS[k].label}
-                        onClick={() => updateNode(n.id, { origin: k, color: null })}></div>
-                    ))}
-                    <label className="nt-color" title="Color personalizado"
-                      style={{ background: n.color || (ORIGINS[n.origin] || ORIGINS.neutral).raw }}>
-                      <Icon name="drop" />
-                      <input type="color" value={n.color || (ORIGINS[n.origin] || ORIGINS.neutral).raw}
-                        onInput={(e) => updateNode(n.id, { color: e.target.value })} />
-                    </label>
-                    <div className="nt-sep"></div>
-                    <div className="nt-ic" title="Cambiar icono" onClick={() => setIconPop(v => !v)}><Icon name={n.icon} /></div>
-                    <div className="nt-ic danger" title="Eliminar bloque" onClick={() => deleteNode(n.id)}><Icon name="trash" /></div>
-                    {iconPop && (
-                      <div className="icon-pop" onPointerDown={(e) => e.stopPropagation()}>
-                        {ICON_KEYS.map(ik => (
-                          <div key={ik} className={"ip-b" + (n.icon === ik ? " on" : "")}
-                            onClick={() => { updateNode(n.id, { icon: ik }); setIconPop(false); }}>
-                            <Icon name={ik} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                    <div className="nt-row">
+                      {ORIGIN_KEYS.map(k => (
+                        <div key={k} className={"nt-dot" + (n.origin === k ? " on" : "")}
+                          style={{ background: ORIGINS[k].raw }} title={ORIGINS[k].label}
+                          onClick={() => updateNode(n.id, { origin: k, color: null })}></div>
+                      ))}
+                      <label className="nt-color" title="Color personalizado"
+                        style={{ background: n.color || (ORIGINS[n.origin] || ORIGINS.neutral).raw }}>
+                        <Icon name="drop" />
+                        <input type="color" value={n.color || (ORIGINS[n.origin] || ORIGINS.neutral).raw}
+                          onInput={(e) => updateNode(n.id, { color: e.target.value })} />
+                      </label>
+                      <div className="nt-sep"></div>
+                      <div className="nt-ic" title="Cambiar icono" onClick={() => setIconPop(v => !v)}><Icon name={n.icon} /></div>
+                      <div className="nt-ic danger" title="Eliminar bloque" onClick={() => deleteNode(n.id)}><Icon name="trash" /></div>
+                      {iconPop && (
+                        <div className="icon-pop" onPointerDown={(e) => e.stopPropagation()}>
+                          {ICON_KEYS.map(ik => (
+                            <div key={ik} className={"ip-b" + (n.icon === ik ? " on" : "")}
+                              onClick={() => { updateNode(n.id, { icon: ik }); setIconPop(false); }}>
+                              <Icon name={ik} />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="nt-link">
+                      <Icon name="link" />
+                      <input type="url" placeholder="Pega un enlace (https://…)"
+                        defaultValue={n.url || ""}
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onBlur={(e) => updateNode(n.id, { url: e.target.value.trim() })}
+                        onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }} />
+                    </div>
                   </div>
                 )}
 
@@ -515,6 +602,67 @@ function App() {
                 {!isEdit && (
                   <div className="conn-dot" title="Arrastrar para conectar con otro bloque"
                     onPointerDown={(e) => onConnDown(e, n.id)}></div>
+                )}
+                {!isEdit && n.url && (
+                  <button className="node-link" title={"Abrir enlace en una pestaña nueva\n" + n.url}
+                    onPointerDown={(e) => e.stopPropagation()}
+                    onClick={(e) => { e.stopPropagation(); window.open(normalizeUrl(n.url), "_blank", "noopener"); }}>
+                    <Icon name="link" />
+                  </button>
+                )}
+              </div>
+            );
+          })}
+
+          {/* free labels / notes */}
+          {notes.map(nt => {
+            const isEdit = editNote === nt.id;
+            const isSel = selNote === nt.id;
+            return (
+              <div key={nt.id}
+                className={"note-chip" + (isEdit ? " editing" : (isSel ? " sel" : ""))}
+                style={{ left: nt.x, top: nt.y, "--c": nt.color || "#1c4f8b" }}
+                onPointerDown={(e) => onNoteDown(e, nt.id)}
+                onPointerMove={onNoteMove}
+                onPointerUp={onNoteUp}
+                onDoubleClick={(e) => { e.stopPropagation(); setEditNote(nt.id); setSelNote(nt.id); setSelNode(null); setSelEdge(null); }}>
+
+                {isEdit && (
+                  <div className="node-tools" onPointerDown={(e) => e.stopPropagation()} onDoubleClick={(e) => e.stopPropagation()}>
+                    <div className="nt-row">
+                      {ORIGIN_KEYS.map(k => (
+                        <div key={k} className={"nt-dot" + (nt.color === ORIGINS[k].raw ? " on" : "")}
+                          style={{ background: ORIGINS[k].raw }} title={ORIGINS[k].label}
+                          onClick={() => updateNote(nt.id, { color: ORIGINS[k].raw })}></div>
+                      ))}
+                      <label className="nt-color" title="Color personalizado" style={{ background: nt.color || "#1c4f8b" }}>
+                        <Icon name="drop" />
+                        <input type="color" value={nt.color || "#1c4f8b"}
+                          onInput={(e) => updateNote(nt.id, { color: e.target.value })} />
+                      </label>
+                      <div className="nt-sep"></div>
+                      <div className="nt-ic danger" title="Eliminar etiqueta" onClick={() => deleteNote(nt.id)}><Icon name="trash" /></div>
+                    </div>
+                    <div className="nt-link">
+                      <Icon name="link" />
+                      <input type="url" placeholder="Enlace opcional (https://…)"
+                        defaultValue={nt.url || ""}
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onBlur={(e) => updateNote(nt.id, { url: e.target.value.trim() })}
+                        onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }} />
+                    </div>
+                  </div>
+                )}
+
+                <span className="nc-dot"></span>
+                <Editable as="span" className="nc-text" editing={isEdit} html={nt.text}
+                  onCommit={(t) => updateNote(nt.id, { text: t || "Etiqueta" })} />
+                {!isEdit && nt.url && (
+                  <button className="nc-link" title={"Abrir enlace en una pestaña nueva\n" + nt.url}
+                    onPointerDown={(e) => e.stopPropagation()}
+                    onClick={(e) => { e.stopPropagation(); window.open(normalizeUrl(nt.url), "_blank", "noopener"); }}>
+                    <Icon name="link" />
+                  </button>
                 )}
               </div>
             );
