@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Información Legal · Nexus Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Marca Nexus Plan */
+    --plum:        #78446B;
+    --plum-deep:   #56354E;
+    --gold:        #C9A170;
+    --gold-deep:   #B37C39;
+    --blue:        #2A517D;
+    --blue-deep:   #214063;
+    --ink:         #1A1A1A;
+    --ink-black:   #0A0A0A;
+    --cream:       #F2EFEC;
+
+    --paper:       #FBFAF8;
+    --hairline:    rgba(86, 53, 78, 0.16);
+    --body:        #2B2630;
+    --muted:       #6E6670;
+
+    --serif: "Cormorant Garamond", "Hoefler Text", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans:  "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, system-ui, sans-serif;
+
+    --measure: 50rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--gold); color: #fff; }
+
+  a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(42,81,125,0.35); transition: color .15s, border-color .15s; }
+  a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+
+  /* ---------- Editor note (placeholder warning) ---------- */
+  .editor-note {
+    background: var(--blue-deep);
+    color: #EDE8DF;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 1.55;
+    text-align: center;
+    padding: 11px 22px;
+    letter-spacing: 0.01em;
+  }
+  .editor-note strong { color: #fff; font-weight: 600; }
+
+  /* ---------- Masthead ---------- */
+  header.masthead {
+    text-align: center;
+    background: #1A1A1A;
+    padding: 56px 24px 58px;
+    position: relative;
+    border-bottom: 1px solid rgba(201,161,112,0.35);
+  }
+  .brand-logo {
+    display: block;
+    margin: 0 auto;
+    width: clamp(220px, 42vw, 340px);
+    height: auto;
+  }
+  .crest {
+    width: 46px;
+    height: 1px;
+    margin: 30px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    position: relative;
+  }
+  .crest::before {
+    content: "";
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 6px; height: 6px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: var(--gold);
+  }
+
+  /* ---------- Document shell ---------- */
+  main {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 28px 120px;
+  }
+
+  .doc-head {
+    text-align: center;
+    margin: 0 auto 56px;
+    max-width: 40rem;
+  }
+  .doc-head h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(36px, 5.4vw, 54px);
+    line-height: 1.28;
+    color: var(--ink);
+    margin: 0 0 14px;
+    padding-bottom: 6px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .doc-head .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 2.6vw, 22px);
+    line-height: 1.5;
+    color: var(--plum);
+    margin: 0 0 26px;
+  }
+  .doc-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .doc-meta span.dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+  /* paper card */
+  article.terms {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: clamp(32px, 6vw, 72px) clamp(24px, 6vw, 76px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 24px 60px -40px rgba(86,53,78,0.5);
+  }
+
+  /* ---------- Sections ---------- */
+  section.clause { margin-top: 46px; scroll-margin-top: 24px; }
+  section.clause:first-of-type { margin-top: 0; }
+
+  .c-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(24px, 3.6vw, 31px);
+    line-height: 1.2;
+    color: var(--plum-deep);
+    margin: 0 0 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    letter-spacing: -0.005em;
+  }
+  .c-title .num {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--gold-deep);
+    background: rgba(201,161,112,0.14);
+    border: 1px solid rgba(201,161,112,0.4);
+    border-radius: 999px;
+    padding: 3px 11px;
+    line-height: 1;
+    transform: translateY(-3px);
+    white-space: nowrap;
+    flex: none;
+  }
+
+  section.clause h4 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin: 26px 0 8px;
+  }
+
+  section.clause p { margin: 0 0 16px; }
+  section.clause p:last-child { margin-bottom: 0; }
+
+  section.clause ul, section.clause ol { margin: 0 0 16px; padding-left: 1.3em; }
+  section.clause li { margin: 0 0 9px; padding-left: 6px; }
+  section.clause li::marker { color: var(--gold-deep); }
+
+  .clause-rule {
+    border: 0;
+    height: 1px;
+    background: var(--hairline);
+    margin: 52px 0 0;
+  }
+
+  strong { color: var(--ink); font-weight: 600; }
+
+  .ph { color: var(--muted); }
+
+  /* ---------- Index nav ---------- */
+  .legal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 34px auto 0;
+    max-width: 38rem;
+  }
+  .legal-nav a {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--plum-deep);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: 9px 17px;
+    background: var(--paper);
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .legal-nav a:hover {
+    border-color: var(--gold-deep);
+    color: var(--gold-deep);
+    background: #fff;
+  }
+
+  /* ---------- Document part ---------- */
+  .doc-part { margin-top: 64px; scroll-margin-top: 20px; }
+  .doc-part:first-of-type { margin-top: 0; }
+  .part-head { text-align: center; margin: 0 auto 30px; }
+  .part-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-indent: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin: 0 0 12px;
+  }
+  .part-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4.4vw, 40px);
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .part-intro {
+    max-width: 40rem;
+    margin: 16px auto 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 2.3vw, 19px);
+    line-height: 1.55;
+    color: var(--plum);
+  }
+
+  /* ---------- Identity list ---------- */
+  dl.meta-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 10px 22px;
+    margin: 4px 0 16px;
+    padding: 22px 24px;
+    background: rgba(120,68,107,0.04);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+  }
+  dl.meta-list dt {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    padding-top: 1px;
+  }
+  dl.meta-list dd {
+    margin: 0;
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.colophon {
+    border-top: 1px solid var(--hairline);
+    margin-top: 56px;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  footer.colophon .mk {
+    font-family: var(--serif);
+    font-size: 16px;
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    color: var(--plum-deep);
+    text-transform: none;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    header.masthead { padding: 56px 20px 40px; }
+    .c-title { flex-direction: column; gap: 8px; }
+    .c-title .num { transform: none; }
+    dl.meta-list { grid-template-columns: 1fr; gap: 4px 0; padding: 18px 18px; }
+    dl.meta-list dd { margin-bottom: 8px; }
+    dl.meta-list dd:last-child { margin-bottom: 0; }
+  }
+
+  @media print {
+    .editor-note { display: none; }
+    body { background: #fff; }
+    article.terms { box-shadow: none; border: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <img class="brand-logo" src="assets/nexusplan-logo.png" alt="Nexus Plan · by Raúl Maraña" />
+    <div class="crest"></div>
+  </header>
+
+  <main>
+    <div class="doc-head">
+      <h1>Información Legal</h1>
+      <p class="lede">Aviso Legal, Política de Privacidad y Términos y Condiciones de Uso del sitio web www.nexusplan.es.</p>
+      <div class="doc-meta">
+        <span>Última actualización</span>
+        <span class="dot"></span>
+        <span>11 de junio de 2026</span>
+      </div>
+      <nav class="legal-nav" aria-label="Índice de documentos">
+        <a href="#aviso-legal">Aviso Legal</a>
+        <a href="#privacidad">Política de Privacidad</a>
+        <a href="#terminos">Términos y Condiciones</a>
+      </nav>
+    </div>
+
+    <!-- ============ AVISO LEGAL ============ -->
+    <section class="doc-part" id="aviso-legal">
+      <div class="part-head">
+        <p class="part-eyebrow">Documento 01</p>
+        <h2 class="part-title">Aviso Legal</h2>
+      </div>
+
+      <article class="terms">
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">01</span> Información general</h3>
+          <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa a los usuarios de los siguientes datos identificativos del titular del sitio web:</p>
+          <dl class="meta-list">
+            <dt>Titular</dt><dd>Raúl Maraña Merchán</dd>
+            <dt>NIF</dt><dd>46920966T</dd>
+            <dt>Domicilio</dt><dd>Calle Casimiro Mahou Bierhans 27, 7ºC, 28005 Madrid (España)</dd>
+            <dt>Email</dt><dd><a href="mailto:raulmarana@raulmarana.com">raulmarana@raulmarana.com</a></dd>
+            <dt>Actividad</dt><dd>Consultoría de marketing</dd>
+            <dt>Sitio web</dt><dd><a href="https://www.nexusplan.es" target="_blank" rel="noopener">www.nexusplan.es</a></dd>
+          </dl>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">02</span> Objeto</h3>
+          <p>El presente Aviso Legal regula el uso del sitio web www.nexusplan.es (en adelante, el <strong>"Sitio Web"</strong>), del que es titular Raúl Maraña Merchán.</p>
+          <p>El acceso al Sitio Web atribuye a quien lo realiza la condición de Usuario e implica la aceptación plena y sin reservas de todas las disposiciones incluidas en el presente Aviso Legal, así como en la Política de Privacidad y en los Términos y Condiciones de Uso.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">03</span> Propiedad intelectual e industrial</h3>
+          <p>Todos los contenidos del Sitio Web (textos, imágenes, fotografías, diseños gráficos, código fuente, marcas, nombres comerciales, logotipos y demás elementos) son propiedad del Titular o de terceros que han autorizado su uso, y se encuentran protegidos por la normativa nacional e internacional sobre propiedad intelectual e industrial.</p>
+          <p>Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otro acto de explotación, total o parcial, de los contenidos del Sitio Web sin la autorización expresa y por escrito del Titular.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">04</span> Exclusión de garantías y responsabilidad</h3>
+          <p>El Titular no garantiza la disponibilidad y continuidad ininterrumpida del Sitio Web, y no será responsable de los daños y perjuicios que pudieran derivarse de la falta de disponibilidad, interrupciones, errores, virus o defectos de funcionamiento, ni del uso indebido del Sitio Web por parte de los Usuarios.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">05</span> Modificaciones</h3>
+          <p>El Titular se reserva el derecho a modificar el presente Aviso Legal en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en el Sitio Web.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">06</span> Legislación aplicable y jurisdicción</h3>
+          <p>El presente Aviso Legal se rige por la legislación española. Para la resolución de cualquier controversia derivada del uso del Sitio Web, las partes se someten expresamente a los Juzgados y Tribunales de Madrid, con renuncia a cualquier otro fuero que pudiera corresponderles.</p>
+        </section>
+
+      </article>
+    </section>
+
+    <!-- ============ POLÍTICA DE PRIVACIDAD ============ -->
+    <section class="doc-part" id="privacidad">
+      <div class="part-head">
+        <p class="part-eyebrow">Documento 02</p>
+        <h2 class="part-title">Política de Privacidad</h2>
+        <p class="part-intro">Regula el tratamiento de los datos personales recogidos a través de www.nexusplan.es, conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).</p>
+      </div>
+
+      <article class="terms">
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">01</span> Responsable del tratamiento</h3>
+          <dl class="meta-list">
+            <dt>Identidad</dt><dd>Raúl Maraña Merchán</dd>
+            <dt>NIF</dt><dd>46920966T</dd>
+            <dt>Dirección</dt><dd>Calle Casimiro Mahou Bierhans 27, 7ºC, 28005 Madrid</dd>
+            <dt>Email</dt><dd><a href="mailto:raulmarana@raulmarana.com">raulmarana@raulmarana.com</a></dd>
+          </dl>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">02</span> Datos que recogemos</h3>
+          <p>A través de los formularios del Sitio Web podemos recoger los datos personales que el Usuario facilite voluntariamente, principalmente su dirección de correo electrónico y, en su caso, su nombre o cualquier otro dato adicional que el Usuario decida proporcionar.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">03</span> Finalidades del tratamiento</h3>
+          <p>Los datos personales del Usuario se tratarán con las siguientes finalidades:</p>
+          <ul>
+            <li>Envío de la newsletter y comunicaciones por correo electrónico relacionadas con contenidos, novedades, publicaciones y materiales del Titular.</li>
+            <li>Atención de consultas, solicitudes de información o cualquier comunicación dirigida por el Usuario al Titular.</li>
+            <li>Envío de contenido relacionado con la actividad profesional del Titular en el ámbito de la consultoría de marketing.</li>
+          </ul>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">04</span> Base jurídica del tratamiento</h3>
+          <p>La base jurídica para el tratamiento de los datos personales es el consentimiento expreso e informado del Usuario, manifestado mediante la cumplimentación voluntaria de los formularios habilitados en el Sitio Web y la aceptación expresa de la presente Política de Privacidad.</p>
+          <p>El Usuario podrá revocar dicho consentimiento en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">05</span> Plazo de conservación</h3>
+          <p>Los datos personales se conservarán mientras el Usuario no solicite su supresión o revoque el consentimiento prestado. Una vez revocado el consentimiento, los datos podrán mantenerse bloqueados durante los plazos legalmente exigibles para atender posibles responsabilidades derivadas del tratamiento.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">06</span> Destinatarios y encargados del tratamiento</h3>
+          <p>Los datos personales del Usuario no serán cedidos ni vendidos a terceros, salvo obligación legal.</p>
+          <p>Para la prestación de determinados servicios (alojamiento del Sitio Web, envío de comunicaciones por correo electrónico, gestión de contactos y herramientas de automatización de marketing), el Titular podrá contar con proveedores tecnológicos que actuarán como encargados del tratamiento, debidamente vinculados mediante contrato conforme al artículo 28 del RGPD.</p>
+          <p>Algunos de estos proveedores podrán estar ubicados fuera del Espacio Económico Europeo. En tales casos, el Titular garantizará que las transferencias internacionales de datos se realicen conforme a las garantías exigidas por el RGPD (cláusulas contractuales tipo de la Comisión Europea, decisiones de adecuación u otros mecanismos legalmente admitidos).</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">07</span> Derechos del Usuario</h3>
+          <p>El Usuario podrá ejercer en cualquier momento los siguientes derechos:</p>
+          <ul>
+            <li>Derecho de acceso a sus datos personales.</li>
+            <li>Derecho de rectificación de los datos inexactos.</li>
+            <li>Derecho de supresión ("derecho al olvido").</li>
+            <li>Derecho de oposición al tratamiento.</li>
+            <li>Derecho a la limitación del tratamiento.</li>
+            <li>Derecho a la portabilidad de los datos.</li>
+            <li>Derecho a revocar el consentimiento prestado en cualquier momento.</li>
+          </ul>
+          <p>Para el ejercicio de estos derechos, el Usuario puede dirigirse al email <a href="mailto:raulmarana@raulmarana.com">raulmarana@raulmarana.com</a>, indicando el derecho que desea ejercer y acompañando, en su caso, copia de su documento identificativo.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">08</span> Reclamaciones ante la autoridad de control</h3>
+          <p>Si el Usuario considera que el tratamiento de sus datos personales no se ajusta a la normativa aplicable, podrá presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">09</span> Seguridad de los datos</h3>
+          <p>El Titular ha adoptado las medidas técnicas y organizativas razonables y necesarias para garantizar la seguridad de los datos personales y evitar su alteración, pérdida, tratamiento o acceso no autorizado, conforme a lo establecido en el RGPD y en la LOPDGDD.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">10</span> Modificaciones</h3>
+          <p>El Titular se reserva el derecho a modificar la presente Política de Privacidad para adaptarla a novedades legislativas o jurisprudenciales, o a cambios en los servicios prestados. Las modificaciones se publicarán en el Sitio Web.</p>
+        </section>
+
+      </article>
+    </section>
+
+    <!-- ============ TÉRMINOS Y CONDICIONES DE USO ============ -->
+    <section class="doc-part" id="terminos">
+      <div class="part-head">
+        <p class="part-eyebrow">Documento 03</p>
+        <h2 class="part-title">Términos y Condiciones de Uso</h2>
+      </div>
+
+      <article class="terms">
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">01</span> Aceptación de los términos</h3>
+          <p>El uso del sitio web www.nexusplan.es atribuye al visitante la condición de Usuario e implica la aceptación plena y sin reservas de los presentes Términos y Condiciones de Uso, así como del Aviso Legal y la Política de Privacidad.</p>
+          <p>Si el Usuario no está de acuerdo con alguna de las disposiciones aquí establecidas, deberá abstenerse de utilizar el Sitio Web.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">02</span> Uso del Sitio Web</h3>
+          <p>El Usuario se compromete a utilizar el Sitio Web y sus contenidos de conformidad con la ley, la moral, las buenas costumbres y el orden público, así como con lo establecido en los presentes Términos.</p>
+          <h4>Queda expresamente prohibido:</h4>
+          <ul>
+            <li>Realizar cualquier uso del Sitio Web que pueda dañar, sobrecargar, deteriorar o impedir su normal funcionamiento.</li>
+            <li>Acceder, reproducir, copiar, modificar, distribuir o comunicar públicamente los contenidos sin autorización expresa del Titular.</li>
+            <li>Introducir o difundir contenidos contrarios a la ley, ofensivos, difamatorios, discriminatorios o que vulneren derechos de terceros.</li>
+            <li>Utilizar el Sitio Web con fines fraudulentos o vinculados a actividades ilícitas.</li>
+          </ul>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">03</span> Newsletter y comunicaciones</h3>
+          <p>La suscripción a la newsletter es voluntaria y gratuita. El Usuario podrá darse de baja en cualquier momento mediante el enlace habilitado a tal efecto en cada comunicación recibida, o enviando un email a <a href="mailto:raulmarana@raulmarana.com">raulmarana@raulmarana.com</a>.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">04</span> Contenidos</h3>
+          <p>Los contenidos publicados en el Sitio Web y enviados por correo electrónico tienen carácter divulgativo y profesional. No constituyen asesoramiento personalizado ni generan vinculación contractual alguna, salvo que se formalice un acuerdo específico por escrito con el Titular.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">05</span> Modificaciones</h3>
+          <p>El Titular se reserva el derecho a modificar en cualquier momento los presentes Términos y Condiciones, así como cualquier otra condición general o particular del Sitio Web. Las modificaciones entrarán en vigor desde su publicación.</p>
+        </section>
+        <hr class="clause-rule" />
+
+        <section class="clause">
+          <h3 class="c-title"><span class="num">06</span> Legislación aplicable y jurisdicción</h3>
+          <p>Los presentes Términos y Condiciones se rigen por la legislación española. Para la resolución de cualquier controversia, las partes se someten expresamente a los Juzgados y Tribunales de Madrid, con renuncia a cualquier otro fuero que pudiera corresponderles.</p>
+        </section>
+
+        <footer class="colophon">
+          <span class="mk">NEXUS PLAN</span>
+          Para cualquier consulta, contacta en <a href="mailto:raulmarana@raulmarana.com">raulmarana@raulmarana.com</a>.<br />
+          © 2026 Nexus Plan · Raúl Maraña Merchán. Todos los derechos reservados.
+        </footer>
+
+      </article>
+    </section>
+  </main>
+
+  <template id="__bundler_thumbnail" data-bg-color="#1A1A1A">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#1A1A1A" />
+      <g stroke="#F2EFEC" stroke-width="6" fill="none" stroke-linecap="round">
+        <line x1="540" y1="300" x2="660" y2="500" />
+        <line x1="660" y1="300" x2="540" y2="500" />
+        <line x1="600" y1="250" x2="600" y2="550" />
+      </g>
+      <text x="600" y="640" text-anchor="middle" fill="#F2EFEC" font-family="Georgia, serif" font-size="56" letter-spacing="14">NEXUS PLAN</text>
+      <text x="600" y="690" text-anchor="middle" fill="#C9A170" font-family="Georgia, serif" font-size="22" letter-spacing="8">INFORMACIÓN LEGAL</text>
+    </svg>
+  </template>
+
+</body>
+</html>
