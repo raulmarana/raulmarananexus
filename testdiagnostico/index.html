@@ -184,7 +184,7 @@
       <label class="consent" for="consent">
         <input type="checkbox" id="consent">
         <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
-        <span>Acepto el tratamiento de mis datos para recibir el diagnóstico, según la <a href="#" target="_blank" rel="noopener">política de privacidad</a>.</span>
+        <span>Acepto el tratamiento de mis datos para recibir el diagnóstico, según la <a href="href="https://raulmarana.nexusplan.es/sobrenexus/terminiosycondiciones/terminosycondiciones.html" target="_blank" rel="noopener">política de privacidad</a>.</span>
       </label>
 
       <div class="errline" id="err2">Necesito tu nombre, un correo válido y tu consentimiento.</div>
@@ -378,7 +378,7 @@ toStep2Btn.addEventListener("click",async()=>{
   }
   const answers=collectStep1();
   try{
-    const r=await fetch("/td-api/save-lead",{
+    const r=await fetch("/.netlify/functions/save-lead",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({answers})
     });
