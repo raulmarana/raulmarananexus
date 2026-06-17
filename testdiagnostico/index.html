@@ -184,7 +184,7 @@
       <label class="consent" for="consent">
         <input type="checkbox" id="consent">
         <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
-        <span>Acepto el tratamiento de mis datos para recibir el diagnóstico, según la <a href="href="https://raulmarana.nexusplan.es/sobrenexus/terminiosycondiciones/terminosycondiciones.html" target="_blank" rel="noopener">política de privacidad</a>.</span>
+        <span>Acepto el tratamiento de mis datos para recibir el diagnóstico, según la <a href="https://raulmarana.nexusplan.es/sobrenexus/terminiosycondiciones/terminosycondiciones.html" target="_blank" rel="noopener">política de privacidad</a>.</span>
       </label>
 
       <div class="errline" id="err2">Necesito tu nombre, un correo válido y tu consentimiento.</div>
@@ -421,7 +421,7 @@ form.addEventListener("submit",async e=>{
   const segmento = /hotmart/i.test(location.href) ? "hotmart" : "";
   const payload={ name:name.value.trim(), email:email.value.trim(), row:savedRow, answers:collectStep1(), segmento:segmento, ts:new Date().toISOString() };
   try{
-    fetch("fetch("/.netlify/functions/send-result-background",{",{
+     fetch("/.netlify/functions/send-result-background",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify(payload)
     });
