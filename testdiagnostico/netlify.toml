@@ -8,6 +8,16 @@
 [functions]
   node_bundler = "esbuild"
 
+# Proxy de las funciones serverless: este proyecto (raulmarananexus) no las
+# tiene, viven en el proyecto "testgratuito". Reescribimos /td-api/* a sus
+# funciones nativas. status=200 (rewrite, NO redirect) para conservar el POST,
+# y force=true para que se aplique siempre.
+[[redirects]]
+  from = "/td-api/*"
+  to = "https://testgratuito.netlify.app/.netlify/functions/:splat"
+  status = 200
+  force = true
+
 # El test se sirve en /testdiagnostico (sin mostrar index.html en la URL).
 # Cubrimos con y sin barra final, y cualquier subruta, para que el enlace
 # de Hotmart funcione lo escriba como lo escriba.

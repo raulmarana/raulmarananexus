@@ -378,7 +378,7 @@ toStep2Btn.addEventListener("click",async()=>{
   }
   const answers=collectStep1();
   try{
-    const r=await fetch("/.netlify/functions/save-lead",{
+    const r=await fetch("/td-api/save-lead",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({answers})
     });
@@ -421,7 +421,7 @@ form.addEventListener("submit",async e=>{
   const segmento = /hotmart/i.test(location.href) ? "hotmart" : "";
   const payload={ name:name.value.trim(), email:email.value.trim(), row:savedRow, answers:collectStep1(), segmento:segmento, ts:new Date().toISOString() };
   try{
-     fetch("/.netlify/functions/send-result-background",{
+     fetch("/td-api/send-result-background",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify(payload)
     });
