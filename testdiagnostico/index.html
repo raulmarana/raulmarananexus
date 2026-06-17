@@ -421,7 +421,7 @@ form.addEventListener("submit",async e=>{
   const segmento = /hotmart/i.test(location.href) ? "hotmart" : "";
   const payload={ name:name.value.trim(), email:email.value.trim(), row:savedRow, answers:collectStep1(), segmento:segmento, ts:new Date().toISOString() };
   try{
-    fetch("/td-api/send-result-background",{
+    fetch("fetch("/.netlify/functions/send-result-background",{",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify(payload)
     });
