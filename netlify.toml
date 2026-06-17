@@ -1,0 +1,10 @@
+# Proxy de las funciones serverless hacia el proyecto "testgratuito".
+# Este archivo va en la RAÍZ del repo, que es el directorio que el sitio
+# publica (base/publish), así que es el netlify.toml que el build SÍ lee.
+# /td-api/* -> funciones nativas de testgratuito. status=200 (rewrite, NO
+# redirect) para conservar el método POST; force=true para aplicarlo siempre.
+[[redirects]]
+  from = "/td-api/*"
+  to = "https://testgratuito.netlify.app/.netlify/functions/:splat"
+  status = 200
+  force = true
