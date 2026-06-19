@@ -185,9 +185,11 @@ async function sendEmail(name,email,html){
   if(!res.ok) throw new Error("Resend error: "+(await res.text()));
 }
 
-async function writeSheet(row,values){
+async function writeSheet(row,values,segmento){
   const token = await getGoogleToken();
-  const id = process.env.GOOGLE_SHEET_ID;
+  // Elegimos la hoja según el origen (misma regla que la columna "origen"): hotmart vs web.
+  const origen = (segmento && String(segmento).trim()) ? String(segmento).toLowerCase() : "web";
+  const id = origen === "hotmart" ? process.env.SHEET_ID_HOTMART : process.env.GOOGLE_SHEET_ID;
   const tab = process.env.GOOGLE_SHEET_TAB || "Sheet1";
   if(row){
     const range = tab+"!A"+row+":Z"+row;
@@ -206,7 +208,7 @@ exports.handler = async (event) => {
     const html = await generate(name, answers, segmento);
     await sendEmail(name, email, html);
     const plain = html.replace(/<\/p>/gi,"\n\n").replace(/<br\s*\/?>/gi,"\n").replace(/<[^>]+>/g,"").replace(/\n{3,}/g,"\n\n").trim();
-    try{ await writeSheet(row, rowValues("enviado",name,email,answers,plain,segmento)); }
+    try{ await writeSheet(row, rowValues("enviado",name,email,answers,plain,segmento), segmento); }
     catch(e){ console.error("sheet write error (el correo ya se envió):",e); }
     return { statusCode:200, body:"ok" };
   }catch(err){

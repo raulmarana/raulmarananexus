@@ -54,7 +54,10 @@ exports.handler = async (event) => {
   try {
     const { answers } = JSON.parse(event.body || "{}");
     const tab = process.env.GOOGLE_SHEET_TAB || "Sheet1";
-    const id = process.env.GOOGLE_SHEET_ID;
+    // Origen del lead, deducido del Referer con la misma regla que el frontend (/hotmart/i).
+    // Decide en qué hoja se escribe; la pestaña y las columnas son iguales para ambas.
+    const origen = /hotmart/i.test(event.headers.referer || "") ? "hotmart" : "web";
+    const id = origen === "hotmart" ? process.env.SHEET_ID_HOTMART : process.env.GOOGLE_SHEET_ID;
     const row = [new Date().toISOString(), "lead", "", "", ...answerCells(answers)];
 
     const token = await getGoogleToken();
